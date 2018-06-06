@@ -53,6 +53,7 @@ python3 generate_result.py
 You will get the file `result.py` with the predicted labels.
 We accidently find that the number of right result of each labels is 10, se we find the label whose number is not 10 and enlarge the datasets by opencv. This is kind of little trick of this contest.
 
+
 ##Some details of the contest
 There are some details of us participating in the contest hold by Baidu and Xi'an Jiaotong University. 
 
