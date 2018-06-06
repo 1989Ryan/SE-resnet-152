@@ -45,13 +45,13 @@ The model of SE-resnet152 is applied through the file `senet.py`. It contains al
 
 ### Generates the result and save
 After training the network, we can find the trained network in the folder `models/seresnet/net-epoch_number.pth`, the `epoch_number` reveals the number of epoch when saving the network. You can change the number of the network in the file `generate_result.py`. The following command enables you to choose the epoch number of the saving network according to what you are willing to load.
-'''
+```
 parser.add_argument('--which_epoch',default='20', type=str, help='0,1,2,3...or last')
-'''
+```
 After that, run the following command:
-'''
+```
 python3 generate_result.py
-'''
+```
 You will get the file `result.txt` with the predicted labels.
 We accidently find that the number of right result of each labels is 10, so we find the label whose number is not 10 and enlarge the datasets by opencv. This is kind of little trick of this contest.
 
