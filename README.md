@@ -3,7 +3,9 @@ This project is the result of the competition of data analysis and aritficial in
 This repository contains an implementation of SE-resnet.
 
 You can find the original SE_resnet implementation, using Caffe
+
 -[SE-ResNet* and SE-ResNeXt*](https://github.com/hujie-frank/SENet) thanks to [Alex Parinov](https://github.com/creafz)
+
 -[SENet154](https://github.com/hujie-frank/SENet) thanks to [Alex Parinov](https://github.com/creafz)
 
 ## Prerequisites
