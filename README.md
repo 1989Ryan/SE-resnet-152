@@ -60,19 +60,19 @@ We accidently find that the number of right result of each labels is 10, so we f
 ## Some details of the contest
 There are some detailed experiences when participating in the contest held by Baidu and Xi'an Jiaotong University. 
 
-### start
+### Start
 We started work on the contest on 28, May. We came up with a convolutional neural network with simply 15 layers. It turns out that 15 layers are absolutely not enough for this 100 classificaiton problem. After 2 days' work, we miserably found that our validation result only reached 55%, so we chose to work on a deeper network.
 
-### change models
+### Change models
 Then we chose to work on PyTorch for transferlearning. The ResNet50 containing 50 layers of CNN was preferred. But we had some problems in preprocessing the images like randomly flipping the pictures and normalizing them with wrong parameters during the training process. Consequently the accuracy was only 89%.
 
-### deeper models
+### Deeper models
 At first we attributed our unsatisfactory accuracy was to the superficial model which is not deep enough, and hence changed the models to ResNet152 which is much deeper than ResNet50. However, the result improved only 1.9 percent, in the end of 90.9%. After carefully reading the paper of ResNet, we found our deficiency in preprocessing the pictures and we corrected the parameters of normalizatino as well as deleted the randomly filpping. Surprisingly, the accuracy reached 96.1%.
 
 Then we analyzed the datasets and our result. The order of the provided data was uncovered that the picture of 100 brands in test datasets is 1000, and the number of our result of each brand is approximately 10. So we speculated that the labels whose number is not 10 may have some problems, so we enlarge the datasets of these labels with opencv. 
 Thanks to enlarged datasets and efficient image preprocessing methods like`torchvision.transforms.Randomcrop()`, `torchvision.transforms.Randomrotation()` and `torchvision.transforms.Resize()`, our accuracy reached 97.1% with rank 157.
 
-### SE-net models
+### SE-Net models
 With the deadline of the contest approaching, we have to accomplish higher accuracy, and thus choose to use SE-net, the champion of ILSVRC 2017. SE_ResNet152 has a much better performance than ResNet152. 100 epoches of training completed, our accuracy climbs to 98.3% with rank 117.
 Having enlarged the datasets with opencv again, we get our final accuracy 99.6%.
 
