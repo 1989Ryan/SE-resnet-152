@@ -38,7 +38,7 @@ The following command will preprocessed all the pictures of train and test and l
 ```
 python3 preprocess_and_train.py
 ```
-In the file '`preprocess_and_train.py`, we use `torchvision.transforms` for preprocessing the datasets such as randomly rotation, carefully crops the pictures and resize to (224,224). We use different method to preprocess the pictures in different period of training to enlarge the datasets. 
+In the file '`preprocess_and_train.py`, we use `torchvision.transforms` for preprocessing the datasets such as randomly rotation, carefully crops the pictures and resize to (224, 224). We use different method to preprocess the pictures in different period of training to enlarge the datasets. 
 The model of SE-resnet152 is applyed through the file `senet.py`. It contains all the network with S.E. processing bottleneck inserted.
 
 ### Generates the result and save
@@ -53,22 +53,21 @@ python3 generate_result.py
 You will get the file `result.py` with the predicted labels.
 We accidently find that the number of right result of each labels is 10, se we find the label whose number is not 10 and enlarge the datasets by opencv. This is kind of little trick of this contest.
 
-
-##Some details of the contest
+## Some details of the contest
 There are some details of us participating in the contest hold by Baidu and Xi'an Jiaotong University. 
 
-###start
+### start
 Firstly we start to work on the contest on 28, May. We come up with a convolutional neural network with simply 15 layers which is absolutely not enough for 100 classificaiton problem. After 2 days work, we find that the result of validation is only 55%, so we choose to work on some deeper network.
 
-###change models
+### change models
 Then we choose to work on PyTorch for transferlearning. We choose to work on resnet50 which contains 50 layers of CNN. But we have some problems in preprocessing the image such as randomly flipping the pictures and normalize it with wrong parameters during the training process. Consiquently the accuracy is only 89%.
 
-###deeper models
+### deeper models
 Firstly I believe the problem is the models is not deep enough, so we change the models to Resnet152 which is much deeper than Resnet50. However, the result is only 90.9%. After carefully read the paper of ResNet we find the problems of preprocessing the pictures and we correct the parameters of normalizatino and delete the randomly filpping. The accuracy of our result is up to 96.1%
 Then we analysis the datasets and our result. We accidently find that the picture of 100 brands of test datasets is 1000, and we find that the number of our result of each brand is approximately 10. So we find that the labels whose number is not 10 must have some problems, so we enlarge the datasets of these labels with opencv. 
 With enlarged datasets, preprocess the images with `torchvision.transforms.Randomcrop()`, `torchvision.transforms.Randomrotation()` and `torchvision.transforms.Resize()`, our accuracy up to 97.1% with rank 157.
 
-###SE-net models
+### SE-net models
 With the deadline of the contest approaching, we have to got higher accuracy, and we choose to use SE-net which is the champion of ILSVRC 2017. We choose to use SE_ResNet152 which have a much better performance than ResNet152. After 100 epoches of training, our accuracy is up to 98.3% with rank 117.
 After that we enlarged the datasets with opencv and got the final accuracy 99.6%.
 
