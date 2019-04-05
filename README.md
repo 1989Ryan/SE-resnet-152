@@ -1,4 +1,7 @@
 # SE-ResNet152
+![license](https://img.shields.io/bower/l/bootstrap.svg?color=blue) <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" /></a>
+
+
 This project is the result of the competition of data analysis and aritficial intelligence held by Baidu and Xi'an Jiaotong University. Our team consists of ZIRUI ZHAO, XINDI WU, YIJUN MAO, SHENGNAN AN, WEIJIAN QI.
 This repository contains an implementation of SE-ResNet.
 
